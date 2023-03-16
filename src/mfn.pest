@@ -1,0 +1,10 @@
+char = _{ (ASCII_ALPHA | ASCII_DIGIT | "." | "," | "-" | "_" | " " | "[" | "]" ) }
+artist = { char+ }
+year = { ASCII_DIGIT{4} }
+year_container = _{ "(" ~ year ~ ") " }
+album = { char+ }
+track = { ASCII_DIGIT{2} }
+track_container = _{ "(" ~ track ~ ") " }
+title = { char+ }
+filename = { artist ~ year_container ~ album ~ track_container ~ title }
+filename_container = { SOI ~ filename ~ EOI }
